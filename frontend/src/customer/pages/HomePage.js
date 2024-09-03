@@ -7,6 +7,8 @@ const HomePage = () => {
     <div>
         <MainCarousel/>
         <HomeSectionCarousel/>
+        <HomeSectionCarousel/>
+        <HomeSectionCarousel/>
     </div>
   )
 }

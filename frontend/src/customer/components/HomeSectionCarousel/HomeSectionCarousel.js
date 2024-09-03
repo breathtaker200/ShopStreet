@@ -11,7 +11,7 @@ const HomeSectionCarousel = () => {
     };
     const items=[1,1,1,1,1,1].map((item)=><HomeCard/>)
   return (
-    <div className='relative lg:px-6'>
+    <div className='relative lg:px-6 mb-5'>
       <div className='relative p-5 z-50'>
       <AliceCarousel
       mouseTracking
