@@ -20,7 +20,7 @@ const MainCarousel = () => {
       disableButtonsControls
       infinite
       autoPlay
-      autoPlayInterval={2000}
+      autoPlayInterval={1000}
     />
   );
 };
