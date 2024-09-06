@@ -1,21 +1,27 @@
 import React, { useRef } from "react";
 import AliceCarousel from "react-alice-carousel";
 import HomeCard from "../HomeSectionCard/HomeCard";
-import { Button, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { kurtaData } from "../../../Utils/kurta";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const HomeSectionCarousel = () => {
   const carouselRef = useRef(null);
 
   const responsive = {
-    0: { items: 1 },
-    720: { items: 3 },
-    1024: { items: 5 },
+    0: { items: 1 },    // Show 1 item on small screens
+    720: { items: 2 },  // Show 2 items on medium screens
+    1024: { items: 4 }, // Show 4 items on large screens
+    1440: { items: 5 }, // Show 5 items on extra-large screens
   };
 
-  const items = kurtaData.map((item) => <HomeCard product={item} />);
+  const items = kurtaData.map((item) => (
+    <div className="mx-4"> 
+      <HomeCard product={item} />
+    </div>
+  ));
 
   const handlePrev = () => {
     if (carouselRef.current) {
@@ -30,8 +36,8 @@ const HomeSectionCarousel = () => {
   };
 
   return (
-    <div className="relative lg:px-6 mb-5">
-      <div className="relative p-5 z-50">
+    <div className=" relative w-full lg:px-6 mb-4">
+      <div className="relative p-3 z-50">
         <AliceCarousel
           ref={carouselRef}
           mouseTracking
@@ -39,32 +45,25 @@ const HomeSectionCarousel = () => {
           disableButtonsControls
           disableDotsControls
           responsive={responsive}
+          infinite={true} // Added infinite scroll for smooth user experience
         />
+
+        {/* Prev Button - Positioned on the left side */}
         <IconButton
           aria-label="previous"
           onClick={handlePrev}
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: 0,
-            transform: "translateY(-50%)",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            color: "white",
-          }}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white p-3 rounded-full hover:bg-gray-700 z-10"
+          style={{ marginLeft: '-20px' }} // slight adjustment to pull the button further out
         >
           <ArrowBackIosIcon />
         </IconButton>
+
+        {/* Next Button - Positioned on the right side */}
         <IconButton
           aria-label="next"
           onClick={handleNext}
-          style={{
-            position: "absolute",
-            top: "50%",
-            right: 0,
-            transform: "translateY(-50%)",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            color: "white",
-          }}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white p-3 rounded-full hover:bg-gray-700 z-10"
+          style={{ marginRight: '-20px' }} // slight adjustment to pull the button further out
         >
           <ArrowForwardIosIcon />
         </IconButton>

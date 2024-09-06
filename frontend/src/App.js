@@ -10,7 +10,6 @@ function App() {
     <div className="text-lg font-bold">
       <Header/>
       <HomePage/>
-      Let's start building
     </div>
   );
 }
