@@ -1,4 +1,4 @@
-import { kurtaData } from "../../../Utils/kurta";
+
 import "./ProductCard.css" 
 const ProductCard = ({product}) => {
     return (
@@ -9,7 +9,7 @@ const ProductCard = ({product}) => {
           <h3 className="font-semibold text-gray-700">{product.title}</h3>
           <div className="flex items-center p-2 text-wrap">
             <h4 className="font-semibold mr-2">{product.selling_price}</h4>
-            <h4 className="font-semibold line-through mr-2">{product.price}</h4>
+            <h4 className="opacity-50 line-through mr-2">{product.price}</h4>
             <h4 className="text-sm font-semibold text-green-500">{product.discount}</h4>
           </div>
         </div>
